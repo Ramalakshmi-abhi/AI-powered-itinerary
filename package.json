@@ -1,0 +1,40 @@
+{
+  "name": "ai-travel-planner-root",
+  "version": "1.0.0",
+  "description": "AI Travel Planner - MERN Stack Monorepo",
+  "main": "api/index.js",
+  "scripts": {
+    "install:client": "npm install --prefix client",
+    "install:server": "npm install --prefix server",
+    "install:all": "npm run install:client && npm run install:server",
+    "build:client": "npm run build --prefix client",
+    "build": "npm run build:client && node -e \"const fs = require('fs'); if (fs.existsSync('public')) fs.rmSync('public', { recursive: true }); fs.renameSync('client/dist', 'public');\"",
+    "start": "node server/server.js",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.4.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.24.1",
+    "pdf-parse": "^1.1.1",
+    "sharp": "^0.33.1",
+    "tesseract.js": "^5.0.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,1 @@
+import{c as e}from"./index-Dmpf2tgw.js";const n=async(a,t)=>(await e.post("/ai/generate",{fileIds:a,title:t})).data,o=async(a,t)=>(await e.post("/ai/chat",{itineraryId:a,message:t})).data;export{o as c,n as g};
