@@ -8,7 +8,7 @@
     "install:server": "npm install --prefix server",
     "install:all": "npm run install:client && npm run install:server",
     "build:client": "npm run build --prefix client",
-    "build": "npm run build:client && node -e \"const fs = require('fs'); if (fs.existsSync('public')) fs.rmSync('public', { recursive: true }); fs.renameSync('client/dist', 'public');\"",
+    "build": "npm run install:client && npm run build:client && node -e \"const fs = require('fs'); if (fs.existsSync('public')) fs.rmSync('public', { recursive: true }); fs.renameSync('client/dist', 'public');\"",
     "start": "node server/server.js",
     "dev:server": "npm run dev --prefix server",
     "dev:client": "npm run dev --prefix client",
